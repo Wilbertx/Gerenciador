@@ -10,7 +10,7 @@ using System.IO;
 using Models;
 using Controllers;
 
-public class UsuarioInserir : Form //Inserir e Atualizar Usuario
+public class UsuarioInserir : Form 
 {
     private System.ComponentModel.IContainer components = null;
 
