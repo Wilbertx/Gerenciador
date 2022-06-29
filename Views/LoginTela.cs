@@ -9,7 +9,7 @@ using System.Threading;
 using System.IO;
 using Models;
     
-public class Login : Form
+public class LoginTela : Form
 {
     private System.ComponentModel.IContainer components = null;
 
@@ -23,7 +23,7 @@ public class Login : Form
     Button btnCancel;
     Button btnCadastrar;
 
-    public Login()
+    public LoginTela()
     {
         this.ClientSize = new System.Drawing.Size(300, 300);
 
