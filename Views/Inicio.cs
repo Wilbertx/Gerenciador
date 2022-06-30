@@ -13,7 +13,6 @@ public class Inicio : Form
         private System.ComponentModel.IContainer components = null;
 
         Label lblLogin;
-
         Button btnCategorias;
         Button btnTags;
         Button btnSenhas;

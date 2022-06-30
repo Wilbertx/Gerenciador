@@ -22,6 +22,8 @@ public class CategoriaDeletar : Form
 
     public CategoriaDeletar(int id)
     {
+        this.id = id;
+        
         lblDeletar = new Label();
         lblDeletar.Text = $"Deseja realmente excluir esse item? (ID: {id})";
         lblDeletar.Size = new Size(200, 40);
@@ -62,9 +64,9 @@ public class CategoriaDeletar : Form
             MessageBox.Show("Categoria deletada com sucesso!");
             this.Close();
         }
-        catch
+        catch (Exception err)
         {
-            MessageBox.Show("Erro ao deletar categoria.");
+            MessageBox.Show($"Erro ao deletar categoria. {err.Message}");
         } 
     }
 

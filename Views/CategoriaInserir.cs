@@ -14,7 +14,7 @@ public class CategoriaInserir : Form
 {
     private System.ComponentModel.IContainer components = null;
 
-    int id;
+    Categoria categoria;
     Label lblNome;
     Label lblDescricao;
 
@@ -120,6 +120,11 @@ public class CategoriaInserir : Form
         btnCancel.Size = new Size(80, 30);
         btnCancel.Click += new EventHandler(this.btnCancelClick);
 
+        if (id > 0) {
+            this.categoria = CategoriaController.GetCategoria(id);
+            this.txtNome.Text = this.categoria.Nome;
+        }
+
         this.Controls.Add(this.lblNome);
         this.Controls.Add(this.lblDescricao);
 
@@ -135,25 +140,33 @@ public class CategoriaInserir : Form
         this.StartPosition = FormStartPosition.CenterScreen;
     }
     private void btConfirmClick(object sender, EventArgs e)
-    {            
-        Categoria categoria = CategoriaController.GetCategoria(id);
-
+    {
+        bool isUpdate = this.categoria != null;
         try
         {
-            CategoriaController.AlterarCategoria(
-                this.id,
-                txtNome.Text,
-                txtDescricao.Text
-            );
+            if (isUpdate) 
+            {
+                CategoriaController.AlterarCategoria(
+                    this.categoria.Id,
+                    txtNome.Text,
+                    txtDescricao.Text
+                );
+            } else {
+                CategoriaController.IncluirCategoria(
+                    txtNome.Text,
+                    txtDescricao.Text
+                );
+            }
 
-            MessageBox.Show("Dados alterados com sucesso.");
+            MessageBox.Show($"Dados {(isUpdate ? "alterados" : "incluídos")} com sucesso.");
             this.Close();
         }
-        catch (System.Exception)
+        catch (Exception err)
         {
-            MessageBox.Show("Não foi possível alterar os dados.");
+            MessageBox.Show($"Não foi possível {(isUpdate ? "alterar" : "incluir")} os dados. {err.Message}");
         }
     }
+    
     private void btnCancelClick(object sender, EventArgs e)
     {
         this.Close();

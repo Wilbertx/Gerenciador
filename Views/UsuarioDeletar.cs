@@ -10,7 +10,7 @@ using System.IO;
 using Models;
 using Controllers;
 
-public class UsuarioDeletar : Form //Deletar Usuario
+public class UsuarioDeletar : Form
 {
     private System.ComponentModel.IContainer components = null;
 

@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.IO;
 using Models;
+using Controllers;
 
 public class Categorias : Form 
 {
@@ -40,6 +41,14 @@ public class Categorias : Form
             listView.GridLines = true;
             listView.AllowColumnReorder = true;
             listView.Sorting = SortOrder.Ascending;
+
+            foreach (Categoria item in CategoriaController.VisualizarCategoria())
+            {
+                newLine = new ListViewItem(item.Id.ToString());
+                newLine.SubItems.Add(item.Nome);
+                newLine.SubItems.Add(item.Descricao);
+                listView.Items.Add(newLine);
+            }
 
             btnCancel = new Button();
             btnCancel.Text = "Cancelar";
@@ -86,7 +95,7 @@ public class Categorias : Form
         }
         else
         {
-            MessageBox.Show("Não há itens selecionados");
+            MessageBox.Show("Não existem itens selecionados");
         }
     }
     private void btnCategoriasAtualizar(object sender, EventArgs e)
@@ -98,7 +107,7 @@ public class Categorias : Form
         }
         else
         {
-            MessageBox.Show("Não há itens selecionados");
+            MessageBox.Show("Não existem itens selecionados");
         }
     }
 

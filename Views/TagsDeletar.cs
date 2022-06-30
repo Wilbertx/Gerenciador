@@ -10,7 +10,7 @@ using System.IO;
 using Models;
 using Controllers;
 
-public class TagsDeletar : Form //Deletar Tags
+public class TagsDeletar : Form
 {
     private System.ComponentModel.IContainer components = null;
 

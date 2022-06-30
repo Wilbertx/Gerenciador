@@ -15,10 +15,8 @@ public class LoginTela : Form
 
     Label lblUser;
     Label lblPass;
-
     TextBox txtUser;
     TextBox txtPass;
-
     Button btnConfirm;
     Button btnCancel;
     Button btnCadastrar;

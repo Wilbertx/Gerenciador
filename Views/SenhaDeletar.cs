@@ -10,7 +10,7 @@ using System.IO;
 using Models;
 using Controllers;
 
-public class SenhaDeletar : Form //Deletar Senha
+public class SenhaDeletar : Form
 {
     private System.ComponentModel.IContainer components = null;
 

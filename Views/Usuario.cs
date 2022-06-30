@@ -8,16 +8,15 @@ using System.Diagnostics;
 using System.Threading;
 using System.IO;
 using Models;
+using Controllers;
 
 public class Usuarios : Form 
 {
     Label lblUsuario;
-
     Button btnCancel;
     Button btnInsert;
     Button btnDeletar;
     Button btnUpdate;
-
     ListView listView;
     ListViewItem newLine;
 
@@ -41,6 +40,15 @@ public class Usuarios : Form
         listView.GridLines = true;
         listView.AllowColumnReorder = true;
         listView.Sorting = SortOrder.Ascending;
+
+        foreach (Usuario item in UsuarioController.VisualizarUsuario())
+        {
+            newLine = new ListViewItem(item.Id.ToString());
+            newLine.SubItems.Add(item.Nome);
+            newLine.SubItems.Add(item.Email);
+            newLine.SubItems.Add(item.Senha);
+            listView.Items.Add(newLine);
+        }
 
         btnCancel = new Button();
         btnCancel.Text = "Cancelar";

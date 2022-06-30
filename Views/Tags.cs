@@ -10,7 +10,7 @@ using System.IO;
 using Models;
 using Controllers;
 
-public class Tags : Form //Tags
+public class Tags : Form
 {
     Label lblTags;
 

@@ -7,6 +7,8 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading;
 using System.IO;
+using Controllers;
+using Models;
 
 public class Senhas : Form
 {
@@ -41,6 +43,15 @@ public class Senhas : Form
         listView.GridLines = true;
         listView.AllowColumnReorder = true;
         listView.Sorting = SortOrder.Ascending;
+
+        foreach (Senha item in SenhaController.VisualizarSenha())
+        {
+            newLine = new ListViewItem(item.Id.ToString());
+            newLine.SubItems.Add(item.Nome);
+            //newLine.SubItems.Add(item.CategoriaId);
+            newLine.SubItems.Add(item.Url);
+            listView.Items.Add(newLine);
+        }
 
         btnCancel = new Button();
         btnCancel.Text = "Cancelar";
